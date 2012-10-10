@@ -1,8 +1,6 @@
 <?php include 'connect.inc.php'; ?>
-<?php
-   $id = $_GET['id'];
-?>
-<?php echo $up_id?>
+
+
 <?php
 // user browser check
 $pre = $_SERVER['HTTP_USER_AGENT'];
@@ -67,8 +65,7 @@ $tmp =  $_FILES['file']['tmp_name'];
 $error =  $_FILES['file']['error'];
 	
 	//echo $folder;
-// redirect URL when user uploaded file
-$redirect = "upload.php?success";
+
 
 $filename = $_FILES['file']['name'];
 
@@ -125,7 +122,7 @@ move_uploaded_file($_FILES["file"]["tmp_name"], "$folder" . $_FILES["file"]["nam
       //send email to collector of file
     $uploader = "Du har laddat upp filen: ";
     $table1 = '<table><tr><td style="border: 1px solid blue;">';
-        $table2 = '</td></tr></table> ';
+    $table2 = '</td></tr></table> ';
     $table3 = '<table border="0"><tr>';
     $tele = " Telefonnr: ";
     $foretag = "Företag: ";
@@ -189,14 +186,22 @@ $query1 = "INSERT INTO `url` VALUES ('', '$link', '$insertfile', '$token', '$ts'
 
 //redirect user afterupload
 
+$dir = $folder;
 
+// Open a known directory, and proceed to read its contents
+if (is_dir($dir)) {
+    if ($dh = opendir($dir)) {
+        while (($file = readdir($dh)) !== false) {
+            echo "filename: $file : filetype: " . filetype($dir . $file) . "\n";
+        }
+        closedir($dh);
+    }
 	
 
 header('Location: '.$redirect); die; $name = $_FILES['file']['name'];$name = $_FILES['file']['name'];
 	
 } 
-// 
-
+	
 ?> 
 
 
@@ -214,7 +219,7 @@ header('Location: '.$redirect); die; $name = $_FILES['file']['name'];$name = $_F
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="check.js"></script>
 
-			<link rel="stylesheet" type="text/css" media="screen" href="/CSS/upload.css" />
+			<link rel="stylesheet" type="text/css" media="screen" href="upload.css" />
 			</style>  
   </head> 
      <body>
@@ -222,7 +227,6 @@ header('Location: '.$redirect); die; $name = $_FILES['file']['name'];$name = $_F
 <table border="0" align="center" cellpadding="20"><tr bgcolor="#F9FAFB"><td>
 <form action="" method="post" enctype="multipart/form-data" name="uploadform" id="uploadform" onsubmit="return validateForm()"> 
 	<h6>*Alla fält är obligatoriska</h6>
-	 <input class="fyll" type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="<?php echo $up_id?>"/>
 	<p>Förnamn:<br /><input class="fyll" type="text" name="username" maxlength="30" value="<?php if (isset($username)) { echo $username; } ?>"><br /></p>
 	<p>Efternamn:<br /><input class="fyll" type="text" name="surname" maxlength="40" value="<?php if (isset($surname)) { echo $surname; } ?>"><br /></p>
 	<p>Företag:<br /><input class="fyll" type="text" name="company" maxlength="40" value="<?php if (isset($company)) { echo $company; } ?>"><br /></p>
