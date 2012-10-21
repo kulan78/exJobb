@@ -1,0 +1,72 @@
+--
+-- Databas: `downcmh`
+--
+CREATE DATABASE `downcmh` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `downcmh`;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellstruktur `url`
+--
+
+CREATE TABLE IF NOT EXISTS `url` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `link` text NOT NULL,
+  `filename` text NOT NULL,
+  `token` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `folder` text NOT NULL,
+  `name` text NOT NULL,
+  `message` text CHARACTER SET utf16 COLLATE utf16_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+
+--
+-- Dumpning av Data i tabell `url`
+--
+
+INSERT INTO `url` (`id`, `link`, `filename`, `token`, `time`, `folder`, `name`, `message`) VALUES
+(1, 'http://192.168.1.99/get.php?q=e0541e85f705a040569afc1b659ce865', 'upload/Peter_Inform-120910-15:31:31/ziptest4.zip', 'e0541e85f705a040569afc1b659ce865', '2012-09-10 01:31:31', 'upload/Peter_Inform-120910-15:31:31/', 'ZipTest4.zip', 'Hej pÃ¥ er Allihopa'),
+(2, 'http://filflyttaren.inform-cmh.se/get.php?q=a1db8e1c968fe314799580e092ee1038', 'upload/Peter_Inform-120910-15:37:05/060709-1.pdf', 'a1db8e1c968fe314799580e092ee1038', '2012-09-10 01:37:05', 'upload/Peter_Inform-120910-15:37:05/', '060709-1.pdf', 'Test utifrÃ¥n frÃ¥n mobil!'),
+(3, 'http://filflyttaren.inform-cmh.se/get.php?q=d7cbd17f8579391dfb70d80615269c0f', 'upload/Peter_Inform-120910-16:09:49/060709-1.pdf', 'd7cbd17f8579391dfb70d80615269c0f', '2012-09-10 02:09:49', 'upload/Peter_Inform-120910-16:09:49/', '060709-1.pdf', 'hsjsjsj'),
+(4, 'http://192.168.1.99/get.php?q=7965b00d9089b1df1ace82262c9eca61', 'upload/Peter_Inform-120911-10:43:20/test5.pdf', '7965b00d9089b1df1ace82262c9eca61', '2012-09-11 08:43:20', 'upload/Peter_Inform-120911-10:43:20/', 'Test5.pdf', 'Detta Ã¤r endast ett test!'),
+(5, 'http://192.168.1.99/get.php?q=f019421d4d5b5700d165999b2ffdbb79', 'upload/Peter_Informtrycket-120911-11:05:11/test1.pdf', 'f019421d4d5b5700d165999b2ffdbb79', '2012-09-11 09:05:11', 'upload/Peter_Informtrycket-120911-11:05:11/', 'Test1.pdf', 'Hej Detta Ã¤r endast ett test!'),
+(6, 'http://192.168.1.99/get.php?q=9099c1adfd57984549fcb2dcebceec34', 'upload/Peter_Inform-120911-11:06:33/ziptest4.zip', '9099c1adfd57984549fcb2dcebceec34', '2012-09-11 09:06:33', 'upload/Peter_Inform-120911-11:06:33/', 'ZipTest4.zip', 'Hej detta Ã¤r endast ett test!'),
+(7, 'http://192.168.1.99/get.php?q=92fd96838d97ac752a7ba606d3875224', 'upload/Peter_Inform CMH-120911-11:07:59/ziptest4.zip', '92fd96838d97ac752a7ba606d3875224', '2012-09-11 09:07:59', 'upload/Peter_Inform CMH-120911-11:07:59/', 'ZipTest4.zip', 'Hej Detta Ã¤r endast ett test!'),
+(8, 'http://192.168.1.99/get.php?q=13df4b9db6bfd2281c6074e26d17523b', 'upload/Peter_Inform-120911-14:52:21/test1.pdf', '13df4b9db6bfd2281c6074e26d17523b', '2012-09-11 00:52:21', 'upload/Peter_Inform-120911-14:52:21/', 'Test1.pdf', 'Hej detta Ã¤r ett test fÃ¶r email!'),
+(9, 'http://192.168.1.99/get.php?q=29c6b58dc6f50b8d170ae95b4f18c7b8', 'upload/Peter_Inform-120914-08:06:56/email.png', '29c6b58dc6f50b8d170ae95b4f18c7b8', '2012-09-14 06:06:56', 'upload/Peter_Inform-120914-08:06:56/', 'email.png', 'Detta Ã¤r ett test av mailfunktionen!'),
+(10, 'http://192.168.1.99/get.php?q=29111bb7df4da7ae6e18a47548b6a54a', 'upload/peter_infrom-120925-10:59:42/history.png', '29111bb7df4da7ae6e18a47548b6a54a', '2012-09-25 08:59:42', 'upload/peter_infrom-120925-10:59:42/', 'history.png', '245735683783'),
+(11, 'http://192.168.1.99/get.php?q=ac9d9b80ae86519ba0ad028ce7b711b2', 'upload/ert_table-120925-11:02:56/email.png', 'ac9d9b80ae86519ba0ad028ce7b711b2', '2012-09-25 09:02:56', 'upload/ert_table-120925-11:02:56/', 'email.png', '52462'),
+(12, 'http://192.168.1.99/get.php?q=a8b456b843ba8f52c95badad5354eddb', 'upload/peter_testar-120925-11:08:46/calendar.png', 'a8b456b843ba8f52c95badad5354eddb', '2012-09-25 09:08:46', 'upload/peter_testar-120925-11:08:46/', 'calendar.png', 'Testar forward med GMAIL!'),
+(13, 'http://192.168.1.99/get.php?q=1b43dd62d20cb0dadd37ee9a79db3246', 'upload/peter_wbt-120925-11:10:09/email.png', '1b43dd62d20cb0dadd37ee9a79db3246', '2012-09-25 09:10:09', 'upload/peter_wbt-120925-11:10:09/', 'email.png', 'rtmhnnhdgndnd'),
+(14, 'http://192.168.1.99/get.php?q=d4f758463e787ccd7339fd8bc051afcc', 'upload/Peter_Inform-120925-11:57:58/desert.jpg', 'd4f758463e787ccd7339fd8bc051afcc', '2012-09-25 09:57:58', 'upload/Peter_Inform-120925-11:57:58/', 'Desert.jpg', 'Test frÃ¥n WIN7'),
+(15, 'http://192.168.1.99/get.php?q=0e47b4b17c7698ea05947bff42ec9a3b', 'upload/Peter_Testar-120925-13:39:34/ziptest4.zip', '0e47b4b17c7698ea05947bff42ec9a3b', '2012-09-24 23:39:34', 'upload/Peter_Testar-120925-13:39:34/', 'ZipTest4.zip', 'Testar frÃ¥n windows 7 stor uppladdning...!'),
+(16, 'http://192.168.1.99/get.php?q=95fc110c0031b33d9627e03dd39e0c43', 'upload/peter_test-120925-14:12:26/portfolio.png', '95fc110c0031b33d9627e03dd39e0c43', '2012-09-25 00:12:26', 'upload/peter_test-120925-14:12:26/', 'portfolio.png', 'Testar Distgrupp i Gmail!'),
+(17, 'http://192.168.1.99/get.php?q=ec5f2970dbf534d3bf37ad03d0bc327e', 'upload/peter_inform-120925-14:21:45/history.png', 'ec5f2970dbf534d3bf37ad03d0bc327e', '2012-09-25 00:21:45', 'upload/peter_inform-120925-14:21:45/', 'history.png', 'testar nya lÃ¤nkningen av filer!'),
+(18, 'http://192.168.1.99/get.php?q=8435524397dd0163cdbdf9d4bfe6d701', 'upload/Peter_Inform-120925-14:24:23/060709-1-1.pdf', '8435524397dd0163cdbdf9d4bfe6d701', '2012-09-25 00:24:23', 'upload/Peter_Inform-120925-14:24:23/', '060709-1-1.pdf', 'Skickar frÃ¥n mobilen'),
+(19, 'http://192.168.1.99/get.php?q=b92fad008dc35e5476706ec159c0a964', 'upload/Petra_Inform CMH-120925-14:36:34/gbge_brf_skylt 2x2m.pdf', 'b92fad008dc35e5476706ec159c0a964', '2012-09-25 00:36:34', 'upload/Petra_Inform CMH-120925-14:36:34/', 'GbgE_BRF_Skylt 2x2m.pdf', 'test'),
+(20, 'http://192.168.1.99/get.php?q=1f2924a86c0f06a92c0194a5dd7a7997', 'upload/SÃ¶ren_Inform-120925-14:38:46/247_vampirestrike.zip', '1f2924a86c0f06a92c0194a5dd7a7997', '2012-09-25 00:38:46', 'upload/SÃ¶ren_Inform-120925-14:38:46/', '247_VampireStrike.zip', 'Hej Vi testar hej hopp!'),
+(21, 'http://192.168.1.99/get.php?q=378cc5a0ce844bcdfd8b0f3ab9ccec00', 'upload/SÃ¶ren_Inform-120925-14:43:19/247_vampirestrike.zip', '378cc5a0ce844bcdfd8b0f3ab9ccec00', '2012-09-25 00:43:19', 'upload/SÃ¶ren_Inform-120925-14:43:19/', '247_VampireStrike.zip', 'Hej Petra!\r\n\r\nHÃ¤r kommer lite pangpang'),
+(22, 'http://192.168.1.99/get.php?q=bae865256f2f807a3d8e915d5325196f', 'upload/Peter_Inform-120925-14:46:56/calendar.png', 'bae865256f2f807a3d8e915d5325196f', '2012-09-25 00:46:56', 'upload/Peter_Inform-120925-14:46:56/', 'calendar.png', 'Peter Testar mail!'),
+(23, 'http://192.168.1.99/get.php?q=3550796064865ab23e7248bb3aea65ec', 'upload/Peter_Inform-120925-14:48:37/history.png', '3550796064865ab23e7248bb3aea65ec', '2012-09-25 00:48:37', 'upload/Peter_Inform-120925-14:48:37/', 'history.png', 'Peter Testar'),
+(24, 'http://192.168.1.99/get.php?q=c0d5d1758a002f623340da23df85a167', 'upload/Peter_Inform-120925-14:51:03/home.png', 'c0d5d1758a002f623340da23df85a167', '2012-09-25 00:51:03', 'upload/Peter_Inform-120925-14:51:03/', 'home.png', 'Testar mail!'),
+(25, 'http://192.168.1.99/get.php?q=842165582830863d6b0aa91a0ab4eccc', 'upload/Peter_Inform-120925-14:57:51/history.png', '842165582830863d6b0aa91a0ab4eccc', '2012-09-25 00:57:51', 'upload/Peter_Inform-120925-14:57:51/', 'history.png', 'Hej Petra Peter testar mail!!'),
+(26, 'http://192.168.1.99/get.php?q=c14b0d05501a0dc70db8af493b47f43e', 'upload/SÃ¶ren_Inform-120925-15:58:03/hammargrens_designs_141-142-143.zip', 'c14b0d05501a0dc70db8af493b47f43e', '2012-09-25 01:58:03', 'upload/SÃ¶ren_Inform-120925-15:58:03/', 'Hammargrens_designs_141-142-143.zip', 'Hej Hopp testar!'),
+(27, 'http://filflyttaren.inform-cmh.se/get.php?q=b18ba3322a4e863c7c136f818fa2a211', 'upload/Peter_Inform-120925-23:34:47/link.png', 'b18ba3322a4e863c7c136f818fa2a211', '2012-09-25 09:34:47', 'upload/Peter_Inform-120925-23:34:47/', 'link.png', 'Testar send funktionen Ã¥t andrahÃ¥llet'),
+(28, 'http://filflyttaren.inform-cmh.se/get.php?q=bb48456b0bd53dba7c2c0631fae302d1', 'upload/Petra_Inform-cmh-120926-08:42:57/inbjudan_2012.pdf', 'bb48456b0bd53dba7c2c0631fae302d1', '2012-09-26 06:42:57', 'upload/Petra_Inform-cmh-120926-08:42:57/', 'Inbjudan_2012.pdf', 'TjoflÃ¶jt'),
+(29, 'http://filflyttaren.inform-cmh.se/get.php?q=765404c06eac7cdc6052e0027d5894ba', 'upload/Petra_Inform-cmh-120926-08:48:25/test1.pdf', '765404c06eac7cdc6052e0027d5894ba', '2012-09-26 06:48:25', 'upload/Petra_Inform-cmh-120926-08:48:25/', 'Test1.pdf', 'peter testar'),
+(30, 'http://192.168.1.99/get.php?q=79f58c9f9d63cfb13e43d91c85ec5682', 'upload/Anthony_Royal Canin-120926-09:42:27/2.1 skylt rolling pallet folder.zip', '79f58c9f9d63cfb13e43d91c85ec5682', '2012-09-26 07:42:27', 'upload/Anthony_Royal Canin-120926-09:42:27/', '2.1 Skylt rolling pallet Folder.zip', 'Mall fÃ¶r skyltar'),
+(31, 'http://192.168.1.99/get.php?q=e6640846833e714d468d798a649bf3a0', 'upload/anthony_Royal Canin-120926-09:43:57/poster takskylt 70x100 1.2, 1.3, 1.5 folder.zip', 'e6640846833e714d468d798a649bf3a0', '2012-09-26 07:43:57', 'upload/anthony_Royal Canin-120926-09:43:57/', 'Poster takskylt 70X100 1.2, 1.3, 1.5 Folder.zip', 'Mall till takskylt'),
+(32, 'http://192.168.1.99/get.php?q=dd5b6778cf4cf4d258a82a171ef5aace', 'upload/A_A-120926-09:54:55/_and4700.jpg', 'dd5b6778cf4cf4d258a82a171ef5aace', '2012-09-26 07:54:55', 'upload/A_A-120926-09:54:55/', '_AND4700.JPG', 'dsdasd'),
+(33, 'http://192.168.1.99/get.php?q=23de3a917b9625528956f3e13cf0c0cf', 'upload/_-120926-10:16:13/rss.png', '23de3a917b9625528956f3e13cf0c0cf', '2012-09-26 08:16:13', 'upload/_-120926-10:16:13/', 'rss.png', 'peter testar'),
+(34, 'http://192.168.1.99/get.php?q=917c60ff3ed26f2a7cfcb7e69319b63d', 'upload/_-120926-10:16:24/history.png', '917c60ff3ed26f2a7cfcb7e69319b63d', '2012-09-26 08:16:24', 'upload/_-120926-10:16:24/', 'history.png', ''),
+(35, 'http://filflyttaren.inform-cmh.se/get.php?q=688155085509c5c740a13542b8fb8ac3', 'upload/Petra_Inform-cmh-120926-10:42:34/lah_infofolder_a5_8-sid_tt.pdf', '688155085509c5c740a13542b8fb8ac3', '2012-09-26 08:42:34', 'upload/Petra_Inform-cmh-120926-10:42:34/', 'LAH_infofolder_A5_8-sid_TT.pdf', 'Hej!\r\nHÃ¤r kommer filen fÃ¶r Landvetter'),
+(36, 'http://192.168.1.99/get.php?q=0fbc7bd22750f587bdd788dd470235df', 'upload/j.120926-10:53:56/history.png', '0fbc7bd22750f587bdd788dd470235df', '2012-09-26 08:53:56', 'upload/j.120926-10:53:56/', 'history.png', 'j'),
+(37, 'http://192.168.1.99/get.php?q=33cb333240c08bd8c36b2c5a1ce324e5', 'upload/gfd.120926/calendar.png', '33cb333240c08bd8c36b2c5a1ce324e5', '2012-09-26 08:57:16', 'upload/gfd.120926/', 'calendar.png', 'gfdg'),
+(38, 'http://192.168.1.99/get.php?q=b31b92b83de586e5dab8a5b21c3a071f', 'upload/fd.120926/history.png', 'b31b92b83de586e5dab8a5b21c3a071f', '2012-09-26 09:00:43', 'upload/fd.120926/', 'history.png', 'ds'),
+(39, 'http://filflyttaren.inform-cmh.se/get.php?q=a129129e97f1392c6ec9be580d3ea47e', 'upload/Petra_Inform-cmh-120926-13:27:15/fin_katalog_webb.pdf', 'a129129e97f1392c6ec9be580d3ea47e', '2012-09-25 23:27:15', 'upload/Petra_Inform-cmh-120926-13:27:15/', 'FIN_Katalog_webb.pdf', 'Finsk katalog'),
+(40, 'http://filflyttaren.inform-cmh.se/get.php?q=3a09e5c390dbb9d8b9d062343b1e94db', 'upload/Petra_Inform-cmh-120927-07:43:18/arkiv.zip', '3a09e5c390dbb9d8b9d062343b1e94db', '2012-09-27 05:43:18', 'upload/Petra_Inform-cmh-120927-07:43:18/', 'Arkiv.zip', 'Hej Peo!\r\nHÃ¤r kommer Tomtar och BlomstermÃ¥la jul logo\r\nMVH\r\nPetra'),
+(41, 'http://filflyttaren.inform-cmh.se/get.php?q=ad6b84bbe6f095f892725f9feda6a817', 'upload/Petra_Inform-cmh-120927-10:18:45/lah_infofolder_a5_8-sid_tt.pdf', 'ad6b84bbe6f095f892725f9feda6a817', '2012-09-27 08:18:45', 'upload/Petra_Inform-cmh-120927-10:18:45/', 'LAH_infofolder_A5_8-sid_TT.pdf', 'Landvetter!'),
+(42, 'http://192.168.1.99/get.php?q=9543190abd2870b7431d2df327f69d85', 'upload/Peter_Inform-120927-15:45:33/test5.pdf', '9543190abd2870b7431d2df327f69d85', '2012-09-27 01:45:33', 'upload/Peter_Inform-120927-15:45:33/', 'Test5.pdf', 'Hej hej detta Ã¤r ett test'),
+(43, 'http://192.168.1.99/get.php?q=a8e79ad472bce6588fd086f99fb3c149', 'upload/Peter _Testarna-120927-15:48:38/ziptest4.zip', 'a8e79ad472bce6588fd086f99fb3c149', '2012-09-27 01:48:38', 'upload/Peter _Testarna-120927-15:48:38/', 'ZipTest4.zip', 'Skickar en 1.9GB stor ZIP fil....');

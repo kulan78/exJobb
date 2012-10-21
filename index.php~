@@ -74,7 +74,7 @@ $redirect = "upload.php?success";
 //upload the file 
 $filename = $_FILES['file']['name'];
 
-// allowed file types
+#allowed file types
 $whitelist = array('pdf', 'zip', 'jpg', 'png', 'jpeg', 'jpg', 'tif', 'gif', 'doc', 'docx','xls', 'xlsx', 'txt',  'bmp', 'raw', 'eps', 'ai', 'svg', 'svgz',  'ppt', 'pptx', 'indd', 'inx', 'psd', 'df'); 
 // not allowed filetypes 
 $backlist = array('php', 'php3', 'php4', 'phtml','exe'); 
